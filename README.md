@@ -3,4 +3,4 @@ Quick-running experiments with Appveyor and Travis Continuous Integration system
 
 ## Branches
 
-The main branch here is trunk.
+The main branch here is [trunk](https://github.com/claremacrae/ci_playground/tree/trunk).
