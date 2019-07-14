@@ -6,3 +6,19 @@ language: c++
 # The default Travis build instruction for C++ is:
 #   ./configure && make && make test
 # https://travis-ci.com/claremacrae/ci_playground/builds/119057435#L441
+
+# https://docs.travis-ci.com/user/job-lifecycle/#the-job-lifecycle
+#  OPTIONAL Install apt addons
+#  OPTIONAL Install cache components
+#  before_install
+#  install
+#  before_script
+#  script
+#  OPTIONAL before_cache (for cleaning up cache)
+#  after_success or after_failure
+#  OPTIONAL before_deploy
+#  OPTIONAL deploy
+#  OPTIONAL after_deploy
+#  after_script
+
+script: echo Hello
