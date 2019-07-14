@@ -9,6 +9,14 @@ image:
   - Visual Studio 2017
   - Visual Studio 2019
 
+# TODO Try using this to build multiple configurations, including mingw:
+# https://github.com/gabime/spdlog/blob/v1.x/appveyor.yml
+
+# TODO Try using something like this to build with cygwin
+# C:\Users\Clare\.CLion2019.1\system\cygwin_cmake\bin\cmake.exe -DCMAKE_BUILD_TYPE=Debug -G "CodeBlocks - Unix Makefiles" /cygdrive/d/Users/Clare/Documents/Programming/github/ApprovalTests/ci_playground/hello_world
+# https://github.com/libyal/libmsiecf/blob/master/appveyor.yml - looks good
+# https://github.com/ALaDyn/piccante/blob/master/appveyor.yml
+
 # -------------------------------------------------------------------
 # The order of available build steps in Appveyor:
 # https://www.appveyor.com/docs/build-configuration/#build-pipeline
