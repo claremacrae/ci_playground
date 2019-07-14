@@ -1,3 +1,5 @@
+# Full Appveyor schema: https://www.appveyor.com/docs/appveyor-yml/
+
 # An empty .appveyor.yml file defaults to MSBuild
 # https://ci.appveyor.com/project/claremacrae/ci-playground/builds/25964280
 
