@@ -3,6 +3,8 @@
 # An empty .appveyor.yml file defaults to MSBuild
 # https://ci.appveyor.com/project/claremacrae/ci-playground/builds/25964280
 
+image: Visual Studio 2017
+
 # -------------------------------------------------------------------
 # The order of available build steps in Appveyor:
 # https://www.appveyor.com/docs/build-configuration/#build-pipeline
@@ -15,6 +17,11 @@ install:
 
 build_script:
   - echo build_script
+  - mkdir .build
+  - cd .build
+  - cmake ..
+  - cmake --build .
+  # - ctest --verbose
 
 test_script:
   - echo test_script
