@@ -3,6 +3,7 @@
 # An empty .travis.yml file defaults to ruby
 # https://travis-ci.com/claremacrae/ci_playground/builds/119056924#L436
 
+# https://docs.travis-ci.com/user/languages/cpp/
 language: c++
 
 # The default Travis build instruction for C++ is:
