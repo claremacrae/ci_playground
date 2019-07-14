@@ -25,7 +25,8 @@ test_script:
 # https://help.appveyor.com/discussions/problems/13537-email-notifications-configuration-has-no-effect
 # https://help.appveyor.com/discussions/questions/18326-how-do-i-disable-email-notifications-for-a-single-project
 
-notifications: 
+notifications:
+  # This gives "Error sending Email notification: Value cannot be null. Parameter name: source"
   - provider: Email 
     on_build_success: true 
     on_build_failure: true 
