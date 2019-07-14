@@ -17,6 +17,10 @@ language: c++
 install:
   echo install - runs after apt addons
 
+# TODO Try out jobs and stages
+# - https://docs.travis-ci.com/user/build-stages/
+# - https://docs.travis-ci.com/user/conditional-builds-stages-jobs/
+
 script:
   echo script
 
