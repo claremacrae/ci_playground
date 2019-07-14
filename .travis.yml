@@ -1,3 +1,5 @@
+# Full Travis schema: https://github.com/travis-ci/travis-yml/blob/master/schema.json 
+
 # An empty .travis.yml file defaults to ruby
 # https://travis-ci.com/claremacrae/ci_playground/builds/119056924#L436
 
