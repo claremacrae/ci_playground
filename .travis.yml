@@ -1,4 +1,8 @@
 # An empty .travis.yml file defaults to ruby
-# https://travis-ci.com/claremacrae/ci_playground/builds/119056924
+# https://travis-ci.com/claremacrae/ci_playground/builds/119056924#L436
 
 language: c++
+
+# The default Travis build instruction for C++ is:
+#   ./configure && make && make test
+# https://travis-ci.com/claremacrae/ci_playground/builds/119057435#L441
