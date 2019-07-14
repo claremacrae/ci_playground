@@ -18,3 +18,14 @@ build_script:
 
 test_script:
   - echo test_script
+
+# Try turning email notifications off
+# The following comments suggest this may not work
+# https://help.appveyor.com/discussions/problems/13537-email-notifications-configuration-has-no-effect
+# https://help.appveyor.com/discussions/questions/18326-how-do-i-disable-email-notifications-for-a-single-project
+
+notifications: 
+  - provider: Email 
+    on_build_success: false 
+    on_build_failure: false 
+    on_build_status_changed: false
