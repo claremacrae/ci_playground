@@ -1,41 +1,18 @@
 # An empty .appveyor.yml file defaults to MSBuild
 # https://ci.appveyor.com/project/claremacrae/ci-playground/builds/25964280
 
+# -------------------------------------------------------------------
+# The order of available build steps in Appveyor:
 # https://www.appveyor.com/docs/build-configuration/#build-pipeline
-#     Run init scripts
-#     Clone repository into clone folder
-#         Checkout build commit
-#         cd to clone folder
-#     Restore build cache
-#     Run install scripts
-#     Patch AssemblyInfo and .csproj files
-#     Modify hosts files
-#     Start services
-#     Build
-#         Run before_build scripts
-#         Run msbuild (or build_script)
-#         Run after_build scripts
-#     Test
-#         Run before_test scripts
-#         Discover and run tests (or test_script)
-#         Run after_test scripts
-#     Call build_success webhooks
-#     Package artifacts
-#     Deployment
-#         Run before_deploy scripts
-#         Run all configured deployments
-#         Run after_deploy scripts
-#     Finalize successful builds:
-#         Call deployment_success webhooks
-#         Run on_success scripts
-#         Save build cache
-#     Finalize failed builds:
-#         Call build_failure webhooks
-#         Optionally save build cache
-#         Call deployment_failure webhooks
-#         Run on_failure scripts
-#     Finalize both successful and failed builds:
-#         Call on_finish scripts
+
+init:
+  - echo init - runs before cloning
+
+install:
+  - echo install - runs after cloning
 
 build_script:
-  - echo Hello
+  - echo build_script
+
+test_script:
+  - echo test_script
