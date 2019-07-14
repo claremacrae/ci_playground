@@ -1,3 +1,4 @@
 # An empty .appveyor.yml file defaults to MSBuild
 # https://ci.appveyor.com/project/claremacrae/ci-playground/builds/25964280
 
+language: c++
