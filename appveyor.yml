@@ -18,6 +18,5 @@ build_script:
 
 test_script:
   - echo test_script
-  - gobbledegook
 
 # Notifications are best controlled via Appveyor preferences
