@@ -3,6 +3,7 @@
 # An empty .appveyor.yml file defaults to MSBuild
 # https://ci.appveyor.com/project/claremacrae/ci-playground/builds/25964280
 
+# https://www.appveyor.com/docs/lang/cpp/
 image:
   - Visual Studio 2015
   - Visual Studio 2017
