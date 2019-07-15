@@ -39,7 +39,7 @@ install:
   - echo install - runs after cloning
 
 build_script:
-  - cmd: if [%TARGET%]==[windows] (
+  - cmd: if [%BUILD_ENVIRONMENT%]==[windows] (
       echo build_script &&
       mkdir .build &&
       cd .build &&
