@@ -48,7 +48,17 @@ build_script:
   # From https://github.com/gabime/spdlog/blob/v1.x/appveyor.yml
   # See also https://www.appveyor.com/docs/windows-images-software/#mingw-msys-cygwin
   - set
+  # Remove git from the path, in attempt to fix the following warning:
+  # CMake Error at C:/Program Files (x86)/CMake/share/cmake-3.13/Modules/CMakeMinGWFindMake.cmake:12 (message):
+  #   sh.exe was found in your PATH, here:
+  #   C:/Program Files/Git/usr/bin/sh.exe
+  #   For MinGW make to work correctly sh.exe must NOT be in your path.
+  #   Run cmake from a shell that does not have sh.exe in your PATH.
+  #   If you want to use a UNIX shell, then use MSYS Makefiles.
+  - set PATH=%PATH:C:\Program Files\Git\usr\bin;=%
   - set PATH=C:\mingw-w64\x86_64-8.1.0-posix-seh-rt_v6-rev0\mingw32\bin;%PATH%
+  - set PATH
+
   - echo build_script
   - mkdir .build
   - cd .build
