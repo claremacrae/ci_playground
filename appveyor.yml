@@ -47,7 +47,7 @@ install:
 build_script:
   # From https://github.com/gabime/spdlog/blob/v1.x/appveyor.yml
   # See also https://www.appveyor.com/docs/windows-images-software/#mingw-msys-cygwin
-  - cmd: >
+  - cmd:
       set
       set PATH=C:\mingw-w64\x86_64-8.1.0-posix-seh-rt_v6-rev0\mingw32\bin;%PATH%
       echo build_script
