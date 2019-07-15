@@ -9,6 +9,9 @@
 #  - Visual Studio 2017
 #  - Visual Studio 2019
 
+BUILD_ENVIRONMENT: windows # Use windows cmd, unless overridden in the matrix
+
+# https://www.appveyor.com/docs/build-environment/#using-multiple-images-for-the-same-build
 environment:
   matrix:
     - TARGET: vs2015
@@ -37,14 +40,15 @@ install:
   - echo install - runs after cloning
 
 build_script:
-  - echo build_script
-  - mkdir .build
-  - cd .build
-  - cmake ..
-  - cmake --build .
-  # - ctest --verbose
+  - cmd: if [%TARGET%]==[windows] (
+      echo build_script &&
+      mkdir .build &&
+      cd .build &&
+      cmake .. &&
+      cmake --build . )
 
 test_script:
   - echo test_script
+  # ctest --verbose
 
 # Notifications are best controlled via Appveyor preferences
