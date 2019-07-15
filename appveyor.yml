@@ -53,7 +53,7 @@ build_script:
   - mkdir .build
   - cd .build
   - cmake -G %GENERATOR% ..
-  - cmake --build
+  - cmake --build .
 
 test_script:
   - echo test_script
