@@ -9,10 +9,9 @@
 #  - Visual Studio 2017
 #  - Visual Studio 2019
 
-BUILD_ENVIRONMENT: windows # Use windows cmd, unless overridden in the matrix
-
 # https://www.appveyor.com/docs/build-environment/#using-multiple-images-for-the-same-build
 environment:
+  BUILD_ENVIRONMENT: windows # Use windows cmd, unless overridden in the matrix
   matrix:
     - TARGET: vs2015
       APPVEYOR_BUILD_WORKER_IMAGE: Visual Studio 2015
