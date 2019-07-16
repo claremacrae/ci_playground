@@ -63,9 +63,9 @@ build_script:
   - cmd: if not %TARGET%==mingw64 (echo mingw64) else (echo Not mingw64)
 
   - cmd: if [%TARGET%]==[mingw64] (
-      echo mingw64
+        echo mingw64
       ) else (
-      echo Not mingw64
+        echo Not mingw64
       )
 
 #  # From https://github.com/gabime/spdlog/blob/v1.x/appveyor.yml
