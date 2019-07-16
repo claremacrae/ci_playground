@@ -45,6 +45,10 @@ install:
   - echo install - runs after cloning
 
 build_script:
+  # =================================================================================
+  # Use of blocks of commands
+  # =================================================================================
+
   # Simplest case
   - cmd: echo build_script One-line script
 
@@ -55,6 +59,10 @@ build_script:
       echo Command 2
       echo Command 3
       echo ============================================
+
+  # =================================================================================
+  # Use of conditionals
+  # =================================================================================
 
   # https://ss64.com/nt/if.html
   # "When comparing against a variable that may be empty, we include a pair of brackets [ ] 
