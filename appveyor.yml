@@ -45,9 +45,11 @@ install:
   - echo install - runs after cloning
 
 build_script:
+  # Simplest case
   - cmd: echo build_script One-line script
-  - cmd: echo build_script Two-line script &&
-      echo Command 2
+
+  # All commands appear in one blue line in the output
+  # This makes debugging failing steps a bit harder to do
   - cmd: echo build_script Three-line script &&
       echo Command 2 &&
       echo Command 3
