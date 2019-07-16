@@ -98,6 +98,11 @@ build_script:
       echo Command 2
       echo Command 3
 
+  - cmd: |
+      echo build_script Three-line script with "|"
+      echo Command 2
+      echo Command 3
+
 #  # From https://github.com/gabime/spdlog/blob/v1.x/appveyor.yml
 #  # See also https://www.appveyor.com/docs/windows-images-software/#mingw-msys-cygwin
 #  - set
