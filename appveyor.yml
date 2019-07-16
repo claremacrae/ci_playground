@@ -63,6 +63,8 @@ build_script:
     echo Command 2 &&
     echo Command 3"
 
+  # All commands are on separate blue lines
+  # The blank lines between commands in YAML are a bit irritating, though
   - cmd: >
 
       echo build_script Three-line script with ">"
