@@ -48,7 +48,8 @@ build_script:
   # Simplest case
   - cmd: echo build_script One-line script
 
-  # Nicest syntax for multi-command blocks:
+  # Nicest syntax for multi-command blocks.
+  # Note that the extra two spaces in the front of each line are required
   - cmd: |
       echo build_script Three-line CMD script with "|"
       echo Command 2
