@@ -93,7 +93,9 @@ build_script:
   # Understand msys2/mingw
   # =================================================================================
 
-  - cmd: if [%TARGET%]==[mingw64] ( echo mingw64 && dir C:\msys64 )
+  - cmd: if [%TARGET%]==[mingw64] ( 
+      echo mingw64 &&
+      dir C:\msys64 )
 
 #  # From https://github.com/gabime/spdlog/blob/v1.x/appveyor.yml
 #  # See also https://www.appveyor.com/docs/windows-images-software/#mingw-msys-cygwin
