@@ -60,6 +60,8 @@ build_script:
 
   - cmd: if NOT [%TARGET%]==[mingw64] echo Not mingw64
 
+  - cmd: if not %TARGET%==mingw64 (echo mingw64) else (echo Not mingw64)
+
 #  # From https://github.com/gabime/spdlog/blob/v1.x/appveyor.yml
 #  # See also https://www.appveyor.com/docs/windows-images-software/#mingw-msys-cygwin
 #  - set
