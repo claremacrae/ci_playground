@@ -95,8 +95,8 @@ build_script:
 
   - cmd: |
       if [%TARGET%]==[mingw64] (
-          echo mingw64
-          dir C:\msys64
+          - echo mingw64
+          - dir C:\msys64
       )
 
 #  # From https://github.com/gabime/spdlog/blob/v1.x/appveyor.yml
