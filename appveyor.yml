@@ -55,6 +55,9 @@ build_script:
       echo Command 2 &&
       echo Command 3
 
+  # All commands appear in one blue line in the output
+  # This makes debugging failing steps a bit harder to do.
+  # It will probably make it hard to use double-quotes in commands
   - cmd: "
     echo build_script Three-line script in double-quotes
     echo Command 2 &&
