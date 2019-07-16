@@ -22,9 +22,9 @@ environment:
 #    - TARGET: vs2017
 #      APPVEYOR_BUILD_WORKER_IMAGE: Visual Studio 2017
 #      GENERATOR: '"Visual Studio 15 2017"'
-    - TARGET: vs2019
-      APPVEYOR_BUILD_WORKER_IMAGE: Visual Studio 2019
-      GENERATOR: '"Visual Studio 16 2019"'
+#    - TARGET: vs2019
+#      APPVEYOR_BUILD_WORKER_IMAGE: Visual Studio 2019
+#      GENERATOR: '"Visual Studio 16 2019"'
 
 # TODO Try using this to build multiple configurations, including mingw:
 # https://github.com/gabime/spdlog/blob/v1.x/appveyor.yml
