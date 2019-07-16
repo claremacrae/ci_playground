@@ -53,7 +53,8 @@ build_script:
   # It also needs && at the end of each line
   - cmd: echo build_script Three-line script &&
       echo Command 2 &&
-      echo Command 3
+      echo Command 3 &&
+      echo ============================================
 
   # All commands appear in one blue line in the output
   # This makes debugging failing steps a bit harder to do.
@@ -61,7 +62,8 @@ build_script:
   - cmd: "
     echo build_script Three-line script in double-quotes
     echo Command 2 &&
-    echo Command 3"
+    echo Command 3
+    echo ============================================"
 
   # All commands are on separate blue lines
   # The blank lines between commands in YAML are a bit irritating, though
@@ -73,6 +75,8 @@ build_script:
 
       echo Command 3
 
+      echo ============================================
+
   # All commands are on separate blue lines
   # The blank lines between commands in YAML are a bit irritating, though
   - cmd: >-
@@ -83,12 +87,15 @@ build_script:
 
       echo Command 3
 
+      echo ============================================
+
   # With ">-" and no blank lines, all the commands get run into on eline
   # And this effectively becomes a one-line script
   - cmd: >-
       echo build_script Three-line script with ">-"
       echo Command 2
       echo Command 3
+      echo ============================================
 
   # Nice syntax - nothing special to run lines together
   # Each command is a separate step in the build logs
@@ -97,6 +104,7 @@ build_script:
       echo build_script Three-line batch script
       echo Command 2
       echo Command 3
+      echo ============================================
 
   # Nice syntax - nothing special to run lines together
   # Each command is a separate step in the build logs
@@ -106,6 +114,7 @@ build_script:
       echo build_script Three-line CMD script with "|"
       echo Command 2
       echo Command 3
+      echo ============================================
 
 #  # From https://github.com/gabime/spdlog/blob/v1.x/appveyor.yml
 #  # See also https://www.appveyor.com/docs/windows-images-software/#mingw-msys-cygwin
