@@ -65,7 +65,7 @@ build_script:
 
   - cmd: >
 
-      echo build_script Three-line script with ">" &&
+      echo build_script Three-line script with ">"
 
       echo Command 2 &&
 
@@ -73,7 +73,7 @@ build_script:
 
   - cmd: >-
 
-      echo build_script Three-line script with ">-" &&
+      echo build_script Three-line script with ">-"
 
       echo Command 2 &&
 
