@@ -72,7 +72,7 @@ build_script:
   - cmd: if [%TARGET%]==[mingw64] echo mingw64
 
   # One-line if not
-  - cmd: if NOT [%TARGET%]==[mingw64] echo Not mingw64
+  - cmd: if not [%TARGET%]==[mingw64] echo Not mingw64
 
   # One-line if/else
   - cmd: if not [%TARGET%]==[mingw64] (echo mingw64) else (echo Not mingw64)
