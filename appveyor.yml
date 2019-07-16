@@ -48,9 +48,70 @@ build_script:
   # Simplest case
   - cmd: echo build_script One-line script
 
-  # Nicest syntax for multi-command blocks:
+  # All commands appear in one blue line in the output
+  # This makes debugging failing steps a bit harder to do.
+  # It also needs && at the end of each line
+  - cmd: echo build_script Three-line script &&
+    echo Command 2 &&
+    echo Command 3 &&
+    echo ============================================
+
+  # All commands appear in one blue line in the output
+  # This makes debugging failing steps a bit harder to do.
+  # It will probably make it hard to use double-quotes in commands
+  - cmd: "
+    echo build_script Three-line script in double-quotes
+    echo Command 2 &&
+    echo Command 3
+    echo ============================================"
+
+  # All commands are on separate blue lines
+  # The blank lines between commands in YAML are a bit irritating, though
+  - cmd: >
+
+    echo build_script Three-line script with ">"
+
+    echo Command 2
+
+    echo Command 3
+
+    echo ============================================
+
+  # All commands are on separate blue lines
+  # The blank lines between commands in YAML are a bit irritating, though
+  - cmd: >-
+
+    echo build_script Three-line script with ">-"
+
+    echo Command 2
+
+    echo Command 3
+
+    echo ============================================
+
+  # With ">-" and no blank lines, all the commands get run into on eline
+  # And this effectively becomes a one-line script
+  - cmd: >-
+    echo build_script Three-line script with ">-"
+    echo Command 2
+    echo Command 3
+    echo ============================================
+
+  # Nice syntax - nothing special to run lines together
+  # Each command is a separate step in the build logs
+  # And no need for blank line in the YAML 
+  - |-
+    echo build_script Three-line batch script
+    echo Command 2
+    echo Command 3
+    echo ============================================
+
+  # Nice syntax - nothing special to run lines together
+  # Each command is a separate step in the build logs
+  # And no need for blank line in the YAML
+  # And CMD is more readable than "|" for batch
   - cmd: |
-    echo build_script Three-line CMD script
+    echo build_script Three-line CMD script with "|"
     echo Command 2
     echo Command 3
     echo ============================================
