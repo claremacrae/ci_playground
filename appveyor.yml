@@ -93,7 +93,8 @@ build_script:
   # Understand msys2/mingw
   # =================================================================================
 
-  - cmd: if [%TARGET%]==[mingw64] (
+  - cmd: |
+      if [%TARGET%]==[mingw64] (
           echo mingw64
           dir C:\msys64
       )
