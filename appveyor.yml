@@ -103,6 +103,7 @@ build_script:
   # And no need for blank line in the YAML
   # And CMD is more readable than "|" for batch
   - cmd: |
+      @echo,
       echo build_script Three-line CMD script with "|"
       echo Command 2
       echo Command 3
