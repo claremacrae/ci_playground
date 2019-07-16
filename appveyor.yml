@@ -112,8 +112,8 @@ build_script:
   - cmd: if NOT [%MYSHELL%]==[] (
       echo %MYSHELL% &&
       set PATH= &&
-      %MYSHELL% which cmake &&
-      %MYSHELL% cmake --help &&
+      %MYSHELL% -e -l -c "which cmake" &&
+      %MYSHELL% -e -l -c "cmake --help" &&
       %MYSHELL% -e -l -c "pwd" )
 
 #  # From https://github.com/gabime/spdlog/blob/v1.x/appveyor.yml
