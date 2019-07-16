@@ -111,6 +111,7 @@ build_script:
 
   - cmd: if NOT [%MYSHELL%]==[] (
       echo %MYSHELL% &&
+      set PATH=%PATH:C:\Program Files\Git\usr\bin;=% &&
       %MYSHELL% which cmake &&
       %MYSHELL% cmake --help &&
       %MYSHELL% -e -l -c "pwd" )
