@@ -73,6 +73,8 @@ build_script:
 
       echo Command 3
 
+  # All commands are on separate blue lines
+  # The blank lines between commands in YAML are a bit irritating, though
   - cmd: >-
 
       echo build_script Three-line script with ">-"
@@ -81,6 +83,8 @@ build_script:
 
       echo Command 3
 
+  # With ">-" and no blank lines, all the commands get run into on eline
+  # And this effectively becomes a one-line script
   - cmd: >-
       echo build_script Three-line script with ">-"
       echo Command 2
