@@ -13,7 +13,19 @@
 # GENERATOR approach taken from https://github.com/gabime/spdlog/blob/v1.x/appveyor.yml
 environment:
   matrix:
+    - TARGET: mingw
+      APPVEYOR_BUILD_WORKER_IMAGE: Visual Studio 2015
+      GENERATOR: '"MinGW Makefiles"'
+
     - TARGET: mingw64
+      APPVEYOR_BUILD_WORKER_IMAGE: Visual Studio 2015
+      GENERATOR: '"MinGW Makefiles"'
+
+    - TARGET: cygwin
+      APPVEYOR_BUILD_WORKER_IMAGE: Visual Studio 2015
+      GENERATOR: '"MinGW Makefiles"'
+
+    - TARGET: cygwin64
       APPVEYOR_BUILD_WORKER_IMAGE: Visual Studio 2015
       GENERATOR: '"MinGW Makefiles"'
 #    - TARGET: vs2015
@@ -93,9 +105,23 @@ build_script:
   # Understand msys2/mingw
   # =================================================================================
 
-  - cmd: if [%TARGET%]==[mingw64] ( 
-      echo mingw64 &&
-      dir C:\msys64 )
+  - cmd: if [%TARGET%]==[mingw] (
+      env &&
+      C:\MinGW\msys\1.0\bin\bash -e -l -c "pwd" )
+  - cmd: if [%TARGET%]==[mingw64] (
+      env &&
+      C:\msys64\usr\bin\bash -e -l -c "pwd" )
+
+  # =================================================================================
+  # Understand cygwin
+  # =================================================================================
+
+  - cmd: if [%TARGET%]==[cygwin] (
+      env &&
+      C:\cygwin\bin\bash -e -l -c "pwd" )
+  - cmd: if [%TARGET%]==[cygwin64] (
+      env &&
+      C:\cygwin64\bin\bash -e -l -c "pwd" )
 
 #  # From https://github.com/gabime/spdlog/blob/v1.x/appveyor.yml
 #  # See also https://www.appveyor.com/docs/windows-images-software/#mingw-msys-cygwin
