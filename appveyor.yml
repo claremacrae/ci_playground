@@ -112,7 +112,7 @@ build_script:
   - cmd: if NOT [%MYSHELL%]==[] (
       echo %MYSHELL% &&
       %MYSHELL% which cmake &&
-      %MYSHELL% cmake --help )
+      %MYSHELL% cmake --help &&
       %MYSHELL% -e -l -c "pwd" )
 
 #  # From https://github.com/gabime/spdlog/blob/v1.x/appveyor.yml
