@@ -71,7 +71,6 @@ build_script:
 #
 #  # Try
 #  # - https://project-renard.github.io/doc/development/meeting-log/posts/2016/05/03/windows-build-with-msys2/
-#  # - https://project-renard.github.io/doc/development/meeting-log/posts/2016/05/03/windows-build-with-msys2/
 #  # - https://git.naviter.com/sirmancnik/libjpeg-turbo/src/commit/c082dc039db6a6bc42bcd67571f50727d197a2ef/appveyor.yml
 #
 #  # This one looks really good:
