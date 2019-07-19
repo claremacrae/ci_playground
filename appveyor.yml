@@ -13,42 +13,17 @@
 # GENERATOR approach taken from https://github.com/gabime/spdlog/blob/v1.x/appveyor.yml
 environment:
   matrix:
-    - TARGET: mingw
-      MYSHELL: C:\MinGW\msys\1.0\bin\bash
+    - TARGET: vs2015
       APPVEYOR_BUILD_WORKER_IMAGE: Visual Studio 2015
-      GENERATOR: '"MinGW Makefiles"'
+      GENERATOR: '"Visual Studio 14 2015"'
 
-    - TARGET: mingw64
-      MYSHELL: C:\msys64\usr\bin\bash
-      APPVEYOR_BUILD_WORKER_IMAGE: Visual Studio 2015
-      GENERATOR: '"MinGW Makefiles"'
+    - TARGET: vs2017
+      APPVEYOR_BUILD_WORKER_IMAGE: Visual Studio 2017
+      GENERATOR: '"Visual Studio 15 2017"'
 
-    - TARGET: cygwin
-      MYSHELL: C:\cygwin\bin\bash
-      APPVEYOR_BUILD_WORKER_IMAGE: Visual Studio 2015
-      GENERATOR: '"MinGW Makefiles"'
-
-    - TARGET: cygwin64
-      MYSHELL: C:\cygwin64\bin\bash
-      APPVEYOR_BUILD_WORKER_IMAGE: Visual Studio 2015
-      GENERATOR: '"MinGW Makefiles"'
-#    - TARGET: vs2015
-#      APPVEYOR_BUILD_WORKER_IMAGE: Visual Studio 2015
-#      GENERATOR: '"Visual Studio 14 2015"'
-#    - TARGET: vs2017
-#      APPVEYOR_BUILD_WORKER_IMAGE: Visual Studio 2017
-#      GENERATOR: '"Visual Studio 15 2017"'
-#    - TARGET: vs2019
-#      APPVEYOR_BUILD_WORKER_IMAGE: Visual Studio 2019
-#      GENERATOR: '"Visual Studio 16 2019"'
-
-# TODO Try using this to build multiple configurations, including mingw:
-# https://github.com/gabime/spdlog/blob/v1.x/appveyor.yml
-
-# TODO Try using something like this to build with cygwin
-# C:\Users\Clare\.CLion2019.1\system\cygwin_cmake\bin\cmake.exe -DCMAKE_BUILD_TYPE=Debug -G "CodeBlocks - Unix Makefiles" /cygdrive/d/Users/Clare/Documents/Programming/github/ApprovalTests/ci_playground/hello_world
-# https://github.com/libyal/libmsiecf/blob/master/appveyor.yml - looks good
-# https://github.com/ALaDyn/piccante/blob/master/appveyor.yml
+    - TARGET: vs2019
+      APPVEYOR_BUILD_WORKER_IMAGE: Visual Studio 2019
+      GENERATOR: '"Visual Studio 16 2019"'
 
 # -------------------------------------------------------------------
 # The order of available build steps in Appveyor:
@@ -61,96 +36,14 @@ install:
   - echo install - runs after cloning
 
 build_script:
-  # =================================================================================
-  # Use of blocks of commands
-  # =================================================================================
-
-  # Simplest case
-  - cmd: echo build_script One-line script
-
-  # Nicest syntax for multi-command blocks.
-  # Note that the extra two spaces in the front of each line are required
-  - cmd: |
-      echo build_script Three-line CMD script with "|"
-      echo Command 2
-      echo Command 3
-      echo ============================================
-
-  # =================================================================================
-  # Use of conditionals
-  # =================================================================================
-
-  # https://ss64.com/nt/if.html
-  # "When comparing against a variable that may be empty, we include a pair of brackets [ ] 
-  # so that if the variable does happen to be empty the IF command still has something to compare"
-
-  # One-line if
-  - cmd: if [%TARGET%]==[mingw64] echo mingw64
-
-  # One-line if not
-  - cmd: if not [%TARGET%]==[mingw64] echo Not mingw64
-
-  # One-line if/else
-  - cmd: if not [%TARGET%]==[mingw64] (echo mingw64) else (echo Not mingw64)
-
-  # Split if - only works with one command inside
-  - cmd: if [%TARGET%]==[mingw64] (
-        echo mingw64
-      )
-
-  # Split if/else - only works with one command inside
-  - cmd: if [%TARGET%]==[mingw64] (
-        echo mingw64
-      ) else (
-        echo Not mingw64
-      )
-
-  # =================================================================================
-  # Understand msys2/mingw and cygwin
-  # =================================================================================
-
-  - cmd: if NOT [%MYSHELL%]==[] (
-      echo %MYSHELL% &&
-      set PATH= &&
-      %MYSHELL% -e -l -c "which cmake" &&
-      %MYSHELL% -e -l -c "cmake --help" &&
-      %MYSHELL% -e -l -c "pwd" )
-
-#  # From https://github.com/gabime/spdlog/blob/v1.x/appveyor.yml
-#  # See also https://www.appveyor.com/docs/windows-images-software/#mingw-msys-cygwin
-#  - set
-#  # Remove git from the path, in attempt to fix the following warning:
-#  # CMake Error at C:/Program Files (x86)/CMake/share/cmake-3.13/Modules/CMakeMinGWFindMake.cmake:12 (message):
-#  #   sh.exe was found in your PATH, here:
-#  #   C:/Program Files/Git/usr/bin/sh.exe
-#  #   For MinGW make to work correctly sh.exe must NOT be in your path.
-#  #   Run cmake from a shell that does not have sh.exe in your PATH.
-#  #   If you want to use a UNIX shell, then use MSYS Makefiles.
-#  - set PATH=%PATH:C:\Program Files\Git\usr\bin;=%
-#  - set PATH=C:\mingw-w64\x86_64-8.1.0-posix-seh-rt_v6-rev0\mingw32\bin;%PATH%
-#
-#  # Try
-#  # - https://project-renard.github.io/doc/development/meeting-log/posts/2016/05/03/windows-build-with-msys2/
-#  # - https://git.naviter.com/sirmancnik/libjpeg-turbo/src/commit/c082dc039db6a6bc42bcd67571f50727d197a2ef/appveyor.yml
-#
-#  # This one looks really good:
-#  # - https://github.com/meta-toolkit/meta/blob/master/.appveyor.yml
-#
-#  # TODO Try just invoking msys2 directly, and running simple commands - to understand how it works
-#  # TODO See if it's possible to have a script that works with msys2 and CMD and Travis CI
-#  # TODO May just experiment with different ways of writing multi-line commands
-#  # TODO Experiment with https://yaml-multiline.info/
-#
-#  - set PATH
-#
-#  - echo build_script
-#  - mkdir .build
-#  - cd .build
-#  - cmake -G %GENERATOR% ..
-#  - cmake --build .
+  - echo build_script
+  - mkdir .build
+  - cd .build
+  - cmake -G %GENERATOR% ..
+  - cmake --build .
 
 test_script:
   - echo test_script
-  # ctest --verbose
+  - ctest --verbose
 
 # Notifications are best controlled via Appveyor preferences
