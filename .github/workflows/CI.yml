@@ -31,3 +31,11 @@ jobs:
         run: |
           echo Add other actions to build,
           echo test, and deploy your project.
+
+      - name: Inspect contexts
+        run: |
+          echo "The job context is:"
+          echo "${{ toJson(job) }}"
+          echo ""
+          echo "The steps context is:"
+          echo "${{ toJson(steps) }}"
